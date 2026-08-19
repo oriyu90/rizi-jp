@@ -158,3 +158,48 @@ body{background:#fff;color:var(--ink)}
 .news-layout>.theme-art{aspect-ratio:4/3;border:2px solid var(--ink);box-shadow:12px 12px 0 var(--yellow)}
 .news-hero-art>.theme-art{aspect-ratio:1}
 @media(prefers-color-scheme:dark){html:not([data-theme="light"]) .news-layout>.theme-art{border-color:#eef3e8}}
+
+/* Responsive typography, project-color hover, and shared image-backed headings */
+.hero h1{line-height:1}
+.hero-prefix,.hero-impact{display:block}
+.hero-prefix{font-size:1em;line-height:calc(1em + clamp(4px,.42vw,8px))}
+.hero-impact{font-size:1.12em;line-height:calc(1em + clamp(4px,.42vw,8px));letter-spacing:-.04em}
+html[lang="ja"] .hero-impact{font-size:1.3em;letter-spacing:-.035em}
+
+.project-card{--card-extension:var(--paper)}
+.project-lime,.project-yellow{--card-extension:var(--yellow)}
+.project-blue{--card-extension:var(--blue)}
+.project-green{--card-extension:var(--green)}
+.project-paper{--card-extension:var(--paper)}
+.project-card:hover{box-shadow:0 16px 0 var(--card-extension)}
+
+.projects h2,.section-title h2,.method-title h2,.archive-head h2,.news-contact h2,.closing h2{
+  line-height:calc(1em + clamp(5px,.5vw,10px));
+}
+.projects-art::after{
+  background:linear-gradient(90deg,rgba(255,255,255,.94),rgba(255,255,255,.68) 48%,rgba(255,255,255,.08)),linear-gradient(0deg,rgba(255,255,255,.76) 0,rgba(255,255,255,.28) 44%,transparent 70%);
+}
+.projects-head>p{position:relative;align-self:end;color:#20241f;text-shadow:0 1px 14px rgba(255,255,255,.9)}
+.news-layout>.theme-art,.news-hero-art>.theme-art,.news-hero-art img{border:0}
+
+@media(min-width:1000px){
+  :root{--pad:clamp(44px,4.2vw,104px)}
+  .brand{font-size:clamp(13px,.82vw,17px)}
+  .site-header nav,.button,.text-link{font-size:clamp(12px,.76vw,16px)}
+  .locale-indicator,.eyebrow{font-size:clamp(9px,.62vw,13px)}
+  .hero-lead,.profile-title>p,.news-hero-copy>p:last-child{font-size:clamp(14px,.9vw,19px)}
+  .hero-meta dt,.jump-card p,.project-count,.project-open,.profile-index,.method-title>p,.archive-head>div>p,.news-contact p,.closing>p{font-size:clamp(9px,.6vw,13px)}
+  .hero-meta dd,.ticker,.site-footer p,.site-footer a,.fact small{font-size:clamp(11px,.7vw,15px)}
+  .jump-card h2{font-size:clamp(30px,2.5vw,54px)}
+  .projects-head>p{font-size:clamp(14px,.9vw,19px);max-width:clamp(500px,34vw,720px)}
+  .project-card{padding:clamp(28px,2vw,44px);min-height:clamp(330px,21vw,440px)}
+  .project-icon{width:clamp(66px,4.5vw,90px);height:clamp(66px,4.5vw,90px);font-size:clamp(18px,1.25vw,26px)}
+  .project-name{font-size:clamp(25px,2vw,43px)}
+  .project-desc,.news-list article p,.method-list p,.profile-statement>div p{font-size:clamp(12px,.8vw,17px)}
+  .platforms i,.news-list time,.news-list>article>span,.news-filters button{font-size:clamp(9px,.6vw,13px)}
+}
+
+@media(prefers-color-scheme:dark){
+  html:not([data-theme="light"]) .project-paper{--card-extension:#171c16}
+  html:not([data-theme="light"]) .projects-head>p{color:#e6ebdf;text-shadow:0 2px 18px rgba(0,0,0,.75)}
+}

@@ -33,6 +33,10 @@
       pt:{title:'As novidades<br><em>começam aqui</em>',lead:'Lançamentos, atualizações de produtos e anúncios.',archive:'Todas as notícias',empty:'Nenhuma notícia nesta categoria.',contact:'Acompanhe as novidades<br>também no X.'}
     }
   };
+  pages.home.ja.hero='<span class="hero-prefix">世界をもっと、</span><em class="hero-impact">便利に</em><span class="hero-impact">面白く</span>';
+  pages.home.en.hero='<span class="hero-prefix">Make the world</span><em class="hero-impact">more useful</em><span class="hero-impact">more interesting</span>';
+  pages.home.zh.hero='<span class="hero-prefix">让世界更加</span><em class="hero-impact">便利</em><span class="hero-impact">更加有趣</span>';
+  pages.home.pt.hero='<span class="hero-prefix">Um mundo mais</span><em class="hero-impact">prático</em><span class="hero-impact">interessante</span>';
   const html=(s,v)=>{const n=document.querySelector(s);if(n&&v)n.innerHTML=v};
   const text=(s,v)=>{const n=document.querySelector(s);if(n&&v)n.textContent=v};
   const metadata={
