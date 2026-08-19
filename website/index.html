@@ -3,7 +3,8 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <meta name="theme-color" content="#ffd21c">
+  <meta name="theme-color" content="#b8ff2c" media="(prefers-color-scheme: light)">
+  <meta name="theme-color" content="#0d100d" media="(prefers-color-scheme: dark)">
   <meta name="description" content="折田悠希（Yuki_Orita）の公式ポートフォリオ。開発したアプリ、記事、お知らせ、プロフィールを紹介します。">
   <meta name="keywords" content="折田悠希,oriyu90,おりたゆうき,Yuki_Orita,MD Viewer Pro,Yuki,Orita,RIZI,rizi-jp,awasero-music,easyroo,kizi,mcs-manager,media-master-9o5,mlx-bar,pinechat,tango-pro,vocello-jp,volume-routine,wakaru">
   <meta property="og:title" content="Yuki Orita — Official">
@@ -15,13 +16,14 @@
   <meta name="twitter:image" content="https://rizi-jp.pages.dev/assets/og.png">
   <title>Yuki Orita — Official</title>
   <link rel="stylesheet" href="styles.css">
+  <script src="i18n.js" defer></script>
   <script src="content.js" defer></script>
   <script src="app.js" defer></script>
 </head>
 <body>
   <div class="intro" aria-hidden="true">
-    <img class="intro-logo intro-logo-jp" src="logo-JP.jpg" alt="">
-    <img class="intro-logo intro-logo-en" src="logo-EN.jpg" alt="">
+    <div class="intro-light-brand"><span>YO</span><strong>YUKI ORITA</strong></div>
+    <img class="intro-dark-logo" data-intro-dark-logo src="logo-EN.jpg" alt="">
   </div>
 
   <header class="site-header">
@@ -29,7 +31,7 @@
     <nav aria-label="メインナビゲーション">
       <a href="#projects">Projects</a><a href="news.html">News</a><a href="profile.html">Profile</a>
     </nav>
-    <a class="pill pill-dark header-cta" href="https://github.com/oriyu90" target="_blank" rel="noreferrer">GitHub ↗</a>
+    <div class="header-tools"><span class="locale-indicator" data-locale-indicator>JA</span><a class="pill pill-dark header-cta" href="https://github.com/oriyu90" target="_blank" rel="noreferrer">GitHub ↗</a></div>
   </header>
 
   <main id="top">
@@ -63,13 +65,13 @@
         <span class="jump-no">02</span><div><p>PROFILE</p><h2>作っている人を、<br>もっと知る。</h2><span class="round-arrow">→</span></div>
       </a>
       <a class="jump-card jump-news" href="news.html">
-        <img src="assets/news-signal.webp" alt="お知らせを表現した黄色と黒の立体アート">
+        <img src="assets/news-signal-lime.webp" alt="お知らせを表現した黄緑と黒の立体アート">
         <span class="jump-no">03</span><div><p>NEWS & UPDATES</p><h2>新しい動きを、<br>ここから。</h2><span class="round-arrow">↓</span></div>
       </a>
     </section>
 
     <section class="projects" id="projects">
-      <div class="projects-art" aria-hidden="true"><img src="assets/projects-landscape.webp" alt=""></div>
+      <div class="projects-art" aria-hidden="true"><picture><source media="(prefers-color-scheme: dark)" srcset="assets/projects-dark-lime.webp"><img src="assets/projects-light-lime.webp" alt=""></picture></div>
       <div class="projects-head section-pad reveal">
         <div><p class="eyebrow eyebrow-light"><span></span>PROJECT ARCHIVE</p><h2>つくったもの、<br><em>育てているもの。</em></h2></div>
         <p>音楽、学習、AI、ファイル管理。日常の小さな不便を見つけ、使える形までつくります。カードを選ぶと詳細が開きます。</p>
@@ -80,7 +82,7 @@
     <section class="news section-pad" id="news">
       <div class="section-title reveal"><p class="eyebrow"><span></span>NEWS / 2026</p><h2>お知らせ</h2></div>
       <div class="news-layout reveal">
-        <img src="assets/news-signal.webp" alt="お知らせを表現した立体アート">
+        <img src="assets/news-signal-lime.webp" alt="お知らせを表現した立体アート">
         <div><div id="news-list" class="news-list" data-limit="3"></div><a class="news-more" href="news.html">すべてのお知らせを見る <span>→</span></a></div>
       </div>
     </section>
