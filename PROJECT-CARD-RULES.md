@@ -9,6 +9,7 @@
   name: 'サービス名',
   url: 'https://example.pages.dev/',
   repository: 'https://github.com/oriyu90/example',
+  announceRelease: true,
   releaseDate: '2026.08.19',
   releaseVersion: 'v1.0.0',
   releaseSource: 'github-release',
@@ -29,6 +30,7 @@
 - `name`: 画面に表示する正式名称
 - `url`: 公式サイトの完全なURL
 - `repository`: Release情報の根拠となるGitHubリポジトリURL
+- `announceRelease`: PROJECT追加と同時にRELEASEのお知らせを自動追加する場合は `true`。未公開・開発中など、お知らせに出さない場合は `false`
 - `releaseDate`: 初回GitHub Releaseの公開日。`YYYY.MM.DD`形式で記入する
 - `releaseVersion`: 初回GitHub Releaseのタグ名。Releaseがない場合は空文字にする
 - `releaseSource`: 通常は `github-release`。Releaseがなくリポジトリ作成日を代用した場合だけ `repository-created`
@@ -37,7 +39,16 @@
 - `platforms`: `Web` / `Windows` / `macOS` / `Linux` / `Android` から該当するもの
 - `color`: `lime` / `blue` / `green` / `paper` のいずれか
 
-`releaseDate`、`releaseVersion`、`releaseSource` はカード上には表示されません。`releaseDate` があるPROJECTは、`content.js`によって `RELEASE` 種別のお知らせへ自動反映されます。PROJECTを追加したあとに、同じ内容のRELEASEお知らせを手作業で重複登録しないでください。
+`announceRelease`、`releaseDate`、`releaseVersion`、`releaseSource` はカード上には表示されません。`announceRelease: true` かつ `releaseDate` があるPROJECTだけが、`content.js`によって `RELEASE` 種別のお知らせへ自動反映されます。PROJECTを追加したあとに、同じ内容のRELEASEお知らせを手作業で重複登録しないでください。
+
+まだReleaseに至っていないサービスは、次のように登録します。公式公開後に `announceRelease` を `true` に変更し、公開情報を記入してください。
+
+```js
+announceRelease: false,
+releaseDate: '',
+releaseVersion: '',
+releaseSource: ''
+```
 
 ## 並び順
 
@@ -50,6 +61,8 @@
 3. 説明がカード上で3行以内に収まるか
 4. 対応環境が公式サイトの記載と一致しているか
 5. `repository` が正しいGitHubリポジトリを指しているか
-6. `releaseDate` と `releaseVersion` がGitHubの初回Releaseと一致しているか
-7. RELEASEフィルターに自動生成されたお知らせが1件だけ表示されるか
-8. PC幅とスマートフォン幅の両方で、検索・1行折り畳み・展開・カードのポップアップを確認する
+6. 公開済みなら `announceRelease: true`、未公開なら `announceRelease: false` になっているか
+7. `releaseDate` と `releaseVersion` がGitHubの初回Releaseと一致しているか
+8. `announceRelease: true` の場合、RELEASEフィルターに自動生成されたお知らせが1件だけ表示されるか
+9. `announceRelease: false` の場合、お知らせに表示されないか
+10. PC幅とスマートフォン幅の両方で、検索・1行折り畳み・展開・カードのポップアップを確認する

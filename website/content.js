@@ -1,4 +1,4 @@
-// PROJECTを一次情報とし、公開日を持つカードからRELEASEのお知らせを自動生成します。
+// PROJECTを一次情報とし、自動追加が有効で公開日を持つカードからRELEASEのお知らせを生成します。
 const projects = [
   {name:'Awasero Music',url:'https://awasero-music.pages.dev/',repository:'https://github.com/oriyu90/awasero-music',releaseDate:'2026.08.19',releaseVersion:'v1.0.0',releaseSource:'github-release',code:'AM',description:{ja:'鼻歌を編集できる楽譜とMIDIへ変換。',en:'Turn humming into editable scores and MIDI.',zh:'将哼唱转换为可编辑乐谱与 MIDI。',pt:'Transforme melodias cantadas em partituras e MIDI.'},platforms:['macOS'],color:'lime'},
   {name:'EasyRoo',url:'https://easyroo.pages.dev/',repository:'https://github.com/oriyu90/EasyRoo',releaseDate:'2026.07.22',releaseVersion:'v1.0',releaseSource:'github-release',code:'ER',description:{ja:'ローカルLLMで日々の作業を自動実行。',en:'Automate daily work with a local LLM.',zh:'使用本地 LLM 自动执行日常任务。',pt:'Automatize tarefas diárias com um LLM local.'},platforms:['macOS'],color:'blue'},
@@ -11,7 +11,10 @@ const projects = [
   {name:'Vocello JP',url:'https://vocello-jp.pages.dev/',repository:'https://github.com/oriyu90/vocello-jp',releaseDate:'2026.08.18',releaseVersion:'v2.4.0-jp.1',releaseSource:'github-release',code:'VO',description:{ja:'Macで完結する日本語AI音声スタジオ。',en:'A Japanese AI voice studio that stays on Mac.',zh:'完全在 Mac 本地运行的日语 AI 语音工作室。',pt:'Estúdio de voz japonesa com IA, local no Mac.'},platforms:['macOS'],color:'blue'},
   {name:'Volume Routine',url:'https://volume-routine.pages.dev/',repository:'https://github.com/oriyu90/volume-routine',releaseDate:'2026.06.20',releaseVersion:'v1.0.1',releaseSource:'github-release',code:'VR',description:{ja:'時間とWi-FiでAndroid音量を自動化。',en:'Automate Android volume by time and Wi-Fi.',zh:'按时间和 Wi-Fi 自动调整 Android 音量。',pt:'Automatize o volume do Android por hora e Wi-Fi.'},platforms:['Android'],color:'lime'},
   {name:'WAKARU',url:'https://wakaru.pages.dev/',repository:'https://github.com/oriyu90/WAKARU',releaseDate:'2026.08.19',releaseVersion:'v0.1.0',releaseSource:'github-release',code:'WK',description:{ja:'資料を根拠つきで「わかる」に変える。',en:'Turn documents into cited understanding.',zh:'将资料转化为带有依据的理解。',pt:'Transforme documentos em entendimento com fontes.'},platforms:['macOS'],color:'paper'}
-];
+].map(project => ({
+  announceRelease: true,
+  ...project
+}));
 
 const manualNews = [
   {date:'2026.08.19',tag:'OTHER',title:{ja:'公式ポートフォリオを公開しました。',en:'The official portfolio is now live.',zh:'官方作品集网站已上线。',pt:'O portfólio oficial já está no ar.'},summary:{ja:'制作したアプリ、記事、プロフィールを一つの場所から見られる公式サイトを公開しました。',en:'A new home for my apps, articles, updates, and profile.',zh:'在一个网站中浏览我开发的应用、文章、动态与个人资料。',pt:'Um novo espaço para meus apps, artigos, novidades e perfil.'}},
@@ -20,7 +23,7 @@ const manualNews = [
   {date:'2026.08.12',tag:'UPDATE',title:{ja:'Tango pro v2.0.0 を公開しました。',en:'Tango pro v2.0.0 is available.',zh:'Tango pro v2.0.0 已发布。',pt:'Tango pro v2.0.0 está disponível.'},summary:{ja:'CSVから単語帳を作り、4択とタイピングで学べるAndroid・macOSアプリです。',en:'Build vocabulary books from CSV and study with multiple choice or typing.',zh:'从 CSV 创建单词本，并通过选择题或输入练习学习。',pt:'Crie vocabulários via CSV e estude com alternativas ou digitação.'},url:'https://tango-pro.pages.dev/'}
 ];
 
-const projectReleaseNews = projects.filter(project => project.releaseDate).map(project => {
+const projectReleaseNews = projects.filter(project => project.announceRelease === true && project.releaseDate).map(project => {
   const releasedName = `${project.name}${project.releaseVersion ? ` ${project.releaseVersion}` : ''}`;
   return {
     date: project.releaseDate,
