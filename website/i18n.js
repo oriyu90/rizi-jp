@@ -1,6 +1,8 @@
 (function () {
   const supported = ['ja', 'en', 'zh', 'pt'];
-  const requested = new URLSearchParams(location.search).get('lang')?.toLowerCase().split('-')[0];
+  const params = new URLSearchParams(location.search);
+  const requested = params.get('lang')?.toLowerCase().split('-')[0];
+  if(params.get('theme')==='light') document.documentElement.dataset.theme='light';
   const detected = (supported.includes(requested) ? requested : (navigator.languages || [navigator.language || 'en'])
     .map(value => value.toLowerCase().split('-')[0])
     .find(value => supported.includes(value))) || 'en';
@@ -48,6 +50,7 @@
     text('[data-locale-indicator]',window.SITE_LANG.toUpperCase());
     const page=document.body.classList.contains('profile-page')?'profile':document.body.classList.contains('news-page')?'news':'home';
     const t=pages[page][window.SITE_LANG];
+    if(document.documentElement.dataset.theme==='light') document.querySelectorAll('source[media*="prefers-color-scheme: dark"]').forEach(source=>source.media='not all');
     const meta=metadata[page][window.SITE_LANG];document.title=meta[0];document.querySelector('meta[name="description"]')?.setAttribute('content',meta[1]);
     if(page==='home'){
       html('.hero h1',t.hero);html('.hero-lead',t.lead);html('.hero-actions .button',t.projects);html('.hero-actions .text-link',t.profile);
