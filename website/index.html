@@ -1,12 +1,99 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="ja">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>rizi-jp</title>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="theme-color" content="#ffd21c">
+  <meta name="description" content="折田悠希（Yuki_Orita）の公式ポートフォリオ。開発したアプリ、記事、お知らせ、プロフィールを紹介します。">
+  <meta name="keywords" content="折田悠希,oriyu90,おりたゆうき,Yuki_Orita,MD Viewer Pro,Yuki,Orita,RIZI,rizi-jp,awasero-music,easyroo,kizi,mcs-manager,media-master-9o5,mlx-bar,pinechat,tango-pro,vocello-jp,volume-routine,wakaru">
+  <meta property="og:title" content="Yuki Orita — Official">
+  <meta property="og:description" content="世界をもっと便利に、そして面白く。折田悠希のプロジェクトと活動。">
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="https://rizi-jp.pages.dev/">
+  <meta property="og:image" content="https://rizi-jp.pages.dev/assets/og.png">
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:image" content="https://rizi-jp.pages.dev/assets/og.png">
+  <title>Yuki Orita — Official</title>
+  <link rel="stylesheet" href="styles.css">
+  <script src="content.js" defer></script>
+  <script src="app.js" defer></script>
 </head>
 <body>
-<h1>rizi-jp</h1>
-<p>Coming soon.</p>
+  <div class="intro" aria-hidden="true">
+    <img class="intro-logo intro-logo-jp" src="logo-JP.jpg" alt="">
+    <img class="intro-logo intro-logo-en" src="logo-EN.jpg" alt="">
+  </div>
+
+  <header class="site-header">
+    <a class="brand" href="#top" aria-label="Yuki Orita トップへ"><span class="brand-mark">YO</span><span>YUKI ORITA</span></a>
+    <nav aria-label="メインナビゲーション">
+      <a href="#projects">Projects</a><a href="news.html">News</a><a href="profile.html">Profile</a>
+    </nav>
+    <a class="pill pill-dark header-cta" href="https://github.com/oriyu90" target="_blank" rel="noreferrer">GitHub ↗</a>
+  </header>
+
+  <main id="top">
+    <section class="hero" aria-labelledby="hero-title">
+      <div class="hero-copy reveal">
+        <p class="eyebrow"><span></span>INDEPENDENT DEVELOPER · HIROSHIMA</p>
+        <h1 id="hero-title">世界をもっと、<em>便利に。</em><br>そして面白く。</h1>
+        <p class="hero-lead">誰もがその便利さ、面白さにふれる機会があるように。<br>そんな世界を目指して、開発をしています。</p>
+        <div class="hero-actions">
+          <a class="button button-yellow" href="#projects">プロジェクトを見る <span>→</span></a>
+          <a class="text-link" href="profile.html">プロフィール <span>↘</span></a>
+        </div>
+        <dl class="hero-meta"><div><dt>PROJECTS</dt><dd>11</dd></div><div><dt>FOCUS</dt><dd>LOCAL FIRST</dd></div><div><dt>BASED IN</dt><dd>HIROSHIMA</dd></div></dl>
+      </div>
+      <div class="hero-visual" aria-label="開発中の折田悠希">
+        <img src="main.jpg" alt="複数の画面で開発作業をする折田悠希">
+        <div class="floating-card float-one"><span class="status-dot"></span><strong>BUILDING NOW</strong><small>Ideas into products</small></div>
+        <div class="floating-card float-two"><b>11</b><span>OPEN PROJECTS</span></div>
+      </div>
+    </section>
+
+    <div class="ticker" aria-hidden="true"><div>DESIGN ● DEVELOP ● OPEN SOURCE ● LOCAL FIRST ● DESIGN ● DEVELOP ● OPEN SOURCE ● LOCAL FIRST ●</div></div>
+
+    <section class="jump-grid section-pad reveal" aria-label="主要ページ">
+      <a class="jump-card jump-article" href="https://kizi.pages.dev/" target="_blank" rel="noreferrer">
+        <img src="assets/article-editorial.webp" alt="ノートと設計資料のエディトリアル写真">
+        <span class="jump-no">01</span><div><p>LATEST ARTICLES</p><h2>考えたことを、<br>言葉にする。</h2><span class="round-arrow">↗</span></div>
+      </a>
+      <a class="jump-card jump-profile" href="profile.html">
+        <img src="自画像.jpg" alt="折田悠希のプロフィール写真">
+        <span class="jump-no">02</span><div><p>PROFILE</p><h2>作っている人を、<br>もっと知る。</h2><span class="round-arrow">→</span></div>
+      </a>
+      <a class="jump-card jump-news" href="news.html">
+        <img src="assets/news-signal.webp" alt="お知らせを表現した黄色と黒の立体アート">
+        <span class="jump-no">03</span><div><p>NEWS & UPDATES</p><h2>新しい動きを、<br>ここから。</h2><span class="round-arrow">↓</span></div>
+      </a>
+    </section>
+
+    <section class="projects" id="projects">
+      <div class="projects-art" aria-hidden="true"><img src="assets/projects-landscape.webp" alt=""></div>
+      <div class="projects-head section-pad reveal">
+        <div><p class="eyebrow eyebrow-light"><span></span>PROJECT ARCHIVE</p><h2>つくったもの、<br><em>育てているもの。</em></h2></div>
+        <p>音楽、学習、AI、ファイル管理。日常の小さな不便を見つけ、使える形までつくります。カードを選ぶと詳細が開きます。</p>
+      </div>
+      <div class="project-grid section-pad" id="project-grid" aria-live="polite"></div>
+    </section>
+
+    <section class="news section-pad" id="news">
+      <div class="section-title reveal"><p class="eyebrow"><span></span>NEWS / 2026</p><h2>お知らせ</h2></div>
+      <div class="news-layout reveal">
+        <img src="assets/news-signal.webp" alt="お知らせを表現した立体アート">
+        <div><div id="news-list" class="news-list" data-limit="3"></div><a class="news-more" href="news.html">すべてのお知らせを見る <span>→</span></a></div>
+      </div>
+    </section>
+
+    <section class="closing section-pad">
+      <p>HELLO, WORLD.</p>
+      <h2>次の「便利」と「面白い」を、<br><em>つくり続ける。</em></h2>
+      <a class="button button-yellow" href="mailto:yukiorita0911.official@gmail.com">CONTACT <span>↗</span></a>
+    </section>
+  </main>
+
+  <footer class="site-footer section-pad"><a class="brand" href="#top"><span class="brand-mark">YO</span><span>YUKI ORITA</span></a><p>© 2026 Yuki_Orita</p><div><a href="https://x.com/InovateofRIZI" target="_blank" rel="noreferrer">X</a><a href="https://github.com/oriyu90" target="_blank" rel="noreferrer">GitHub</a><a href="news.html">News</a><a href="profile.html">Profile</a></div></footer>
+
+  <dialog class="project-dialog" id="project-dialog"><button class="dialog-close" aria-label="閉じる">×</button><div id="dialog-content"></div></dialog>
 </body>
 </html>
