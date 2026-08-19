@@ -44,6 +44,29 @@ const dialog = document.querySelector('#project-dialog');
 let projectQuery = '';
 let projectsExpanded = false;
 let projectResizeFrame = 0;
+let projectCollapseFrame = 0;
+
+function keepProjectToggleInPlace(viewportTop) {
+  cancelAnimationFrame(projectCollapseFrame);
+  const startedAt = performance.now();
+  const duration = reduceMotion ? 80 : 620;
+  const holdPosition = now => {
+    const scrollDelta = projectFoldToggle.getBoundingClientRect().top - viewportTop;
+    if (Math.abs(scrollDelta) > .5) {
+      const root = document.documentElement;
+      const previousScrollBehavior = root.style.scrollBehavior;
+      root.style.scrollBehavior = 'auto';
+      window.scrollBy(0,scrollDelta);
+      root.style.scrollBehavior = previousScrollBehavior;
+    }
+    if (now - startedAt < duration) {
+      projectCollapseFrame = requestAnimationFrame(holdPosition);
+    } else {
+      projectFoldToggle.focus({preventScroll:true});
+    }
+  };
+  projectCollapseFrame = requestAnimationFrame(holdPosition);
+}
 
 function updateProjectFold() {
   if (!grid || !gridShell || !projectFoldToggle) return;
@@ -107,8 +130,12 @@ if (projectSearch) projectSearch.addEventListener('input',event=>{
   renderProjects();
 });
 if (projectFoldToggle) projectFoldToggle.addEventListener('click',()=>{
+  const wasExpanded = projectsExpanded;
+  const toggleViewportTop = projectFoldToggle.getBoundingClientRect().top;
+  if (wasExpanded) projectFoldToggle.blur();
   projectsExpanded = !projectsExpanded;
   updateProjectFold();
+  if (wasExpanded) keepProjectToggleInPlace(toggleViewportTop);
 });
 window.addEventListener('resize',()=>{
   cancelAnimationFrame(projectResizeFrame);

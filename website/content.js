@@ -1,4 +1,6 @@
-// PROJECTを一次情報とし、自動追加が有効で公開日を持つカードからRELEASEのお知らせを生成します。
+// ===== 編集欄 1 / 2: PROJECTカード =====
+// 新サービスをReleaseしたら、PROJECT-CARD-RULES.mdの「PROJECT入力テンプレート」を使って1件追加します。
+// RELEASEお知らせはこのデータから自動生成されるため、manualNewsには重複して追加しません。
 const projects = [
   {name:'Awasero Music',url:'https://awasero-music.pages.dev/',repository:'https://github.com/oriyu90/awasero-music',releaseDate:'2026.08.19',releaseVersion:'v1.0.0',releaseSource:'github-release',code:'AM',description:{ja:'鼻歌を編集できる楽譜とMIDIへ変換。',en:'Turn humming into editable scores and MIDI.',zh:'将哼唱转换为可编辑乐谱与 MIDI。',pt:'Transforme melodias cantadas em partituras e MIDI.'},platforms:['macOS'],color:'lime'},
   {name:'EasyRoo',url:'https://easyroo.pages.dev/',repository:'https://github.com/oriyu90/EasyRoo',releaseDate:'2026.07.22',releaseVersion:'v1.0',releaseSource:'github-release',code:'ER',description:{ja:'ローカルLLMで日々の作業を自動実行。',en:'Automate daily work with a local LLM.',zh:'使用本地 LLM 自动执行日常任务。',pt:'Automatize tarefas diárias com um LLM local.'},platforms:['macOS'],color:'blue'},
@@ -16,6 +18,10 @@ const projects = [
   ...project
 }));
 
+// ===== 編集欄 2 / 2: UPDATE・OTHERお知らせ =====
+// 既存アプリの更新はUPDATE、サービス公開以外の告知はOTHERとして、
+// PROJECT-CARD-RULES.mdの「お知らせ入力テンプレート」を使って1件追加します。
+// RELEASEはここへ手入力しません。
 const manualNews = [
   {date:'2026.08.19',tag:'OTHER',title:{ja:'公式ポートフォリオを公開しました。',en:'The official portfolio is now live.',zh:'官方作品集网站已上线。',pt:'O portfólio oficial já está no ar.'},summary:{ja:'制作したアプリ、記事、プロフィールを一つの場所から見られる公式サイトを公開しました。',en:'A new home for my apps, articles, updates, and profile.',zh:'在一个网站中浏览我开发的应用、文章、动态与个人资料。',pt:'Um novo espaço para meus apps, artigos, novidades e perfil.'}},
   {date:'2026.08.18',tag:'UPDATE',title:{ja:'Volume Routine v1.1.0 を公開しました。',en:'Volume Routine v1.1.0 is available.',zh:'Volume Routine v1.1.0 已发布。',pt:'Volume Routine v1.1.0 está disponível.'},summary:{ja:'時間とWi-FiをきっかけにAndroidの音量を自動調整する最新版です。',en:'The latest release automates Android volume using time and Wi-Fi triggers.',zh:'通过时间与 Wi-Fi 条件自动调整 Android 音量。',pt:'Automatiza o volume do Android usando horário e Wi-Fi.'},url:'https://volume-routine.pages.dev/'},
@@ -23,6 +29,7 @@ const manualNews = [
   {date:'2026.08.12',tag:'UPDATE',title:{ja:'Tango pro v2.0.0 を公開しました。',en:'Tango pro v2.0.0 is available.',zh:'Tango pro v2.0.0 已发布。',pt:'Tango pro v2.0.0 está disponível.'},summary:{ja:'CSVから単語帳を作り、4択とタイピングで学べるAndroid・macOSアプリです。',en:'Build vocabulary books from CSV and study with multiple choice or typing.',zh:'从 CSV 创建单词本，并通过选择题或输入练习学习。',pt:'Crie vocabulários via CSV e estude com alternativas ou digitação.'},url:'https://tango-pro.pages.dev/'}
 ];
 
+// ===== 以下は自動処理: 通常は編集しません =====
 const projectReleaseNews = projects.filter(project => project.announceRelease === true && project.releaseDate).map(project => {
   const releasedName = `${project.name}${project.releaseVersion ? ` ${project.releaseVersion}` : ''}`;
   return {
