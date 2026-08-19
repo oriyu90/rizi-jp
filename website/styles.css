@@ -203,3 +203,48 @@ html[lang="ja"] .hero-impact{font-size:1.3em;letter-spacing:-.035em}
   html:not([data-theme="light"]) .project-paper{--card-extension:#171c16}
   html:not([data-theme="light"]) .projects-head>p{color:#e6ebdf;text-shadow:0 2px 18px rgba(0,0,0,.75)}
 }
+
+/* Theme-paired intro mark, protected closing line, and fluid utility type */
+.intro{background:#fff}
+.intro-light-brand{display:none}
+.intro-dark-logo-frame{display:block;background:#fff}
+.intro-dark-logo-frame::after{box-shadow:inset 0 0 clamp(34px,7vw,92px) clamp(18px,4vw,54px) #fff}
+.intro-dark-logo-frame .intro-dark-logo{display:block;filter:grayscale(1) invert(1) contrast(180%) brightness(95%)}
+.closing-line{display:block}
+.portrait figcaption{color:var(--ink)!important}
+
+@media(min-width:700px){
+  html[lang="ja"] .closing h2{font-size:clamp(44px,5.8vw,104px);max-width:none}
+  html[lang="ja"] .closing-line{white-space:nowrap}
+}
+
+@media(min-width:1000px){
+  .pill{font-size:clamp(12px,calc(9px + .32vw),16px)}
+  .brand-mark,.float-two span,.jump-no,.project-count,.project-open,.platforms i,
+  .news-list time,.news-list>article>span,.profile-index,.profile-statement>p,
+  .fact span,.social-strip span,.method-title>p,.archive-head>div>p,
+  .method-list li>span,.news-hero-art span,.news-filters button,.project-dialog>p,
+  #dialog-content>p:not(.dialog-desc),.locale-indicator,.eyebrow,.jump-card p,.closing>p{
+    font-size:clamp(9px,calc(7px + .26vw),13px);
+  }
+  .hero-meta dd,.ticker,.portrait figcaption,.fact small,.news-more,
+  .site-footer p,.site-footer a{font-size:clamp(11px,calc(8px + .32vw),15px)}
+  .hero-meta dt{font-size:clamp(9px,calc(7px + .24vw),12px)}
+  .float-two b{font-size:clamp(38px,2.6vw,54px)}
+  .floating-card strong{font-size:clamp(14px,calc(10px + .42vw),18px)}
+  .floating-card small{font-size:clamp(11px,calc(8px + .3vw),14px)}
+  .round-arrow,.news-list article>a{font-size:clamp(16px,1.05vw,22px)}
+  .method-list h3{font-size:clamp(25px,1.65vw,34px)}
+  .dialog-icon{font-size:clamp(22px,1.4vw,28px)}
+  .dialog-close{font-size:clamp(30px,1.9vw,38px)}
+  .project-dialog .dialog-desc{font-size:clamp(16px,1vw,20px)}
+  .news-hero-art>div b{font-size:clamp(14px,.9vw,18px)}
+  .news-empty{font-size:clamp(14px,.9vw,18px)}
+}
+
+@media(prefers-color-scheme:dark){
+  html:not([data-theme="light"]) .intro{background:#000}
+  html:not([data-theme="light"]) .intro-dark-logo-frame{background:#000}
+  html:not([data-theme="light"]) .intro-dark-logo-frame::after{box-shadow:inset 0 0 clamp(34px,7vw,92px) clamp(18px,4vw,54px) #000}
+  html:not([data-theme="light"]) .intro-dark-logo-frame .intro-dark-logo{filter:grayscale(1) contrast(180%) brightness(110%)}
+}

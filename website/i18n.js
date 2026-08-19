@@ -37,6 +37,14 @@
   pages.home.en.hero='<span class="hero-prefix">Make the world</span><em class="hero-impact">more useful</em><span class="hero-impact">more interesting</span>';
   pages.home.zh.hero='<span class="hero-prefix">让世界更加</span><em class="hero-impact">便利</em><span class="hero-impact">更加有趣</span>';
   pages.home.pt.hero='<span class="hero-prefix">Um mundo mais</span><em class="hero-impact">prático</em><span class="hero-impact">interessante</span>';
+  pages.home.ja.j[0]='知恵を得る';
+  pages.home.en.j[0]='Gain insight';
+  pages.home.zh.j[0]='获取智慧';
+  pages.home.pt.j[0]='Ganhar conhecimento';
+  pages.home.ja.closing='<span class="closing-line">次の「便利」と「面白い」を、</span><em>つくり続ける。</em>';
+  pages.home.en.closing='<span class="closing-line">Keep building the next</span><em>useful and interesting thing.</em>';
+  pages.home.zh.closing='<span class="closing-line">继续创造下一个</span><em>便利与有趣。</em>';
+  pages.home.pt.closing='<span class="closing-line">Continuar criando o próximo</span><em>prático e interessante.</em>';
   const html=(s,v)=>{const n=document.querySelector(s);if(n&&v)n.innerHTML=v};
   const text=(s,v)=>{const n=document.querySelector(s);if(n&&v)n.textContent=v};
   const metadata={

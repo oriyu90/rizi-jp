@@ -14,7 +14,7 @@ function initIntro() {
   document.body.classList.add('intro-lock');
   const logo = intro.querySelector('[data-intro-dark-logo]');
   if (logo) logo.src = ['ja','zh'].includes(window.SITE_LANG) ? 'logo-JP.jpg' : 'logo-EN.jpg';
-  const ready = darkMode.matches && logo ? Promise.race([logo.decode().catch(()=>{}), new Promise(r=>setTimeout(r,600))]) : Promise.resolve();
+  const ready = logo ? Promise.race([logo.decode().catch(()=>{}), new Promise(r=>setTimeout(r,600))]) : Promise.resolve();
   ready.then(() => requestAnimationFrame(() => requestAnimationFrame(() => intro.classList.add('is-running'))));
   intro.addEventListener('animationend', event => { if (event.target === intro && event.animationName === 'introDismiss') finish(); });
   setTimeout(finish, 2900);
