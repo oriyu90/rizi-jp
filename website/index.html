@@ -15,10 +15,10 @@
   <meta name="twitter:card" content="summary_large_image">
   <meta name="twitter:image" content="https://rizi-jp.pages.dev/assets/og.png">
   <title>Yuki Orita — Official</title>
-  <link rel="stylesheet" href="styles.css?v=20260819g">
-  <script src="i18n.js?v=20260819g" defer></script>
-  <script src="content.js?v=20260819g" defer></script>
-  <script src="app.js?v=20260819g" defer></script>
+  <link rel="stylesheet" href="styles.css?v=20260819h">
+  <script src="i18n.js?v=20260819h" defer></script>
+  <script src="content.js?v=20260819h" defer></script>
+  <script src="app.js?v=20260819h" defer></script>
 </head>
 <body>
   <div class="intro" aria-hidden="true">
@@ -76,7 +76,15 @@
         <div><p class="eyebrow eyebrow-light"><span></span>PROJECT ARCHIVE</p><h2>つくったもの、<br><em>育てているもの。</em></h2></div>
         <p>音楽、学習、AI、ファイル管理。日常の小さな不便を見つけ、使える形までつくります。カードを選ぶと詳細が開きます。</p>
       </div>
-      <div class="project-grid section-pad" id="project-grid" aria-live="polite"></div>
+      <div class="project-search section-pad">
+        <label for="project-search-input"><span>SEARCH PROJECTS</span><input id="project-search-input" type="search" autocomplete="off" placeholder="プロジェクトを検索"></label>
+        <output id="project-search-count" for="project-search-input" aria-live="polite"></output>
+      </div>
+      <div class="project-grid-shell" id="project-grid-shell">
+        <div class="project-grid section-pad" id="project-grid" aria-live="polite"></div>
+        <div class="project-fold-shade" aria-hidden="true"></div>
+        <button class="project-fold-toggle" id="project-fold-toggle" type="button" aria-controls="project-grid" aria-expanded="false" hidden></button>
+      </div>
     </section>
 
     <section class="news section-pad" id="news">
